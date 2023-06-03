@@ -1,11 +1,13 @@
 package com.viit0r.listacomprasapi.model.entity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
 
 import java.util.Date;
 
 @Entity
 @Table(name = "lista")
+@Getter
 public class Lista {
 
     @Id

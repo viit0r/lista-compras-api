@@ -21,6 +21,6 @@ public class ProdutoServiceImpl implements ProdutoService {
     @Override
     public List<ProdutoResponseDTO> findAll() {
         List<Produto> produtos = produtoRepository.findAll();
-        return produtoMapper.toProdutos(produtos);
+        return produtoMapper.toProdutosDTO(produtos);
     }
 }
