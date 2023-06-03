@@ -1,9 +1,11 @@
 package com.viit0r.listacomprasapi.model.entity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
 
 @Entity
 @Table(name = "item")
+@Getter
 public class Item {
 
     @Id
