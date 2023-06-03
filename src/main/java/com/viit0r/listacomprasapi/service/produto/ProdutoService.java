@@ -1,5 +1,6 @@
 package com.viit0r.listacomprasapi.service.produto;
 
+import com.viit0r.listacomprasapi.model.request.ProdutoRequestDTO;
 import com.viit0r.listacomprasapi.model.response.ProdutoResponseDTO;
 import org.springframework.stereotype.Service;
 
@@ -9,4 +10,6 @@ import java.util.List;
 public interface ProdutoService {
 
     List<ProdutoResponseDTO> findAll();
+
+    ProdutoResponseDTO create(ProdutoRequestDTO produtoDTO);
 }

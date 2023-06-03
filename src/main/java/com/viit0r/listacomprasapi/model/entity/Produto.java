@@ -1,6 +1,7 @@
 package com.viit0r.listacomprasapi.model.entity;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
 
 @Entity
@@ -18,4 +19,10 @@ public class Produto {
 
     @Column(name = "valor_unitario", nullable = false)
     private Double valorUnitario;
+
+    @Builder
+    public Produto(String nome, Double valorUnitario) {
+        this.nome = nome;
+        this.valorUnitario = valorUnitario;
+    }
 }

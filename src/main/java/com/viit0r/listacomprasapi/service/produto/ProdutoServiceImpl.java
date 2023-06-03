@@ -1,6 +1,7 @@
 package com.viit0r.listacomprasapi.service.produto;
 
 import com.viit0r.listacomprasapi.model.entity.Produto;
+import com.viit0r.listacomprasapi.model.request.ProdutoRequestDTO;
 import com.viit0r.listacomprasapi.model.response.ProdutoResponseDTO;
 import com.viit0r.listacomprasapi.repository.ProdutoRepository;
 import com.viit0r.listacomprasapi.util.Mapper;
@@ -22,5 +23,11 @@ public class ProdutoServiceImpl implements ProdutoService {
     public List<ProdutoResponseDTO> findAll() {
         List<Produto> produtos = produtoRepository.findAll();
         return produtoMapper.toProdutosDTO(produtos);
+    }
+
+    @Override
+    public ProdutoResponseDTO create(ProdutoRequestDTO produtoDTO) {
+        Produto produto = produtoMapper.toProduto(produtoDTO);
+        return produtoMapper.toProdutoDTO(produtoRepository.save(produto));
     }
 }

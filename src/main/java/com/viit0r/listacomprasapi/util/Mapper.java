@@ -4,6 +4,7 @@ import com.viit0r.listacomprasapi.model.entity.Item;
 import com.viit0r.listacomprasapi.model.entity.Lista;
 import com.viit0r.listacomprasapi.model.entity.Produto;
 import com.viit0r.listacomprasapi.model.request.ListaRequestDTO;
+import com.viit0r.listacomprasapi.model.request.ProdutoRequestDTO;
 import com.viit0r.listacomprasapi.model.response.ItemResponseDTO;
 import com.viit0r.listacomprasapi.model.response.ListaResponseDTO;
 import com.viit0r.listacomprasapi.model.response.ProdutoResponseDTO;
@@ -40,6 +41,13 @@ public class Mapper {
                 .dataCriacao(listaDTO.getDataCriacao())
                 .limiteGasto(listaDTO.getLimiteGasto())
                 .valorTotal(listaDTO.getValorTotal())
+                .build();
+    }
+
+    public Produto toProduto(ProdutoRequestDTO produtoDTO) {
+        return Produto.builder()
+                .nome(produtoDTO.getNome())
+                .valorUnitario(produtoDTO.getValorUnitario())
                 .build();
     }
 }
