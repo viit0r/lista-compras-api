@@ -1,0 +1,17 @@
+spring:
+  #DATASOURCE BD
+  datasource:
+    url: jdbc:mysql://localhost:3306/lista_compras_db
+    username: root
+    password: viit0r
+
+  #JPA
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+    #SQL
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
