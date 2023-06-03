@@ -1,10 +1,12 @@
 package com.viit0r.listacomprasapi.model.response;
 
 import com.viit0r.listacomprasapi.model.entity.Lista;
+import lombok.Getter;
 
 import java.io.Serializable;
 import java.util.Date;
 
+@Getter
 public class ListaResponseDTO implements Serializable {
 
     private Long id;

@@ -3,6 +3,7 @@ package com.viit0r.listacomprasapi.util;
 import com.viit0r.listacomprasapi.model.entity.Item;
 import com.viit0r.listacomprasapi.model.entity.Lista;
 import com.viit0r.listacomprasapi.model.entity.Produto;
+import com.viit0r.listacomprasapi.model.request.ListaRequestDTO;
 import com.viit0r.listacomprasapi.model.response.ItemResponseDTO;
 import com.viit0r.listacomprasapi.model.response.ListaResponseDTO;
 import com.viit0r.listacomprasapi.model.response.ProdutoResponseDTO;
@@ -25,11 +26,20 @@ public class Mapper {
         return itens.stream().map(ItemResponseDTO::new).collect(Collectors.toList());
     }
 
-    public ProdutoResponseDTO toProduto(Produto produto) {
+    public ProdutoResponseDTO toProdutoDTO(Produto produto) {
         return new ProdutoResponseDTO(produto);
     }
 
-    public ListaResponseDTO toLista(Lista lista) {
+    public ListaResponseDTO toListaDTO(Lista lista) {
         return new ListaResponseDTO(lista);
+    }
+
+    public Lista toLista(ListaRequestDTO listaDTO) {
+        return Lista.builder().
+                nome(listaDTO.getNome())
+                .dataCriacao(listaDTO.getDataCriacao())
+                .limiteGasto(listaDTO.getLimiteGasto())
+                .valorTotal(listaDTO.getValorTotal())
+                .build();
     }
 }

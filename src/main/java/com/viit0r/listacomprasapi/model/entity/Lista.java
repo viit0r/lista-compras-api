@@ -1,13 +1,16 @@
 package com.viit0r.listacomprasapi.model.entity;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
 @Entity
 @Table(name = "lista")
 @Getter
+@NoArgsConstructor
 public class Lista {
 
     @Id
@@ -26,4 +29,12 @@ public class Lista {
 
     @Column(name = "valor_total")
     private Double valorTotal;
+
+    @Builder
+    public Lista(String nome, Date dataCriacao, Double limiteGasto, Double valorTotal) {
+        this.nome = nome;
+        this.dataCriacao = dataCriacao;
+        this.limiteGasto = limiteGasto;
+        this.valorTotal = valorTotal;
+    }
 }

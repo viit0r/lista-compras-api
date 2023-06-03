@@ -22,7 +22,7 @@ public class ItemResponseDTO implements Serializable {
         this.id = item.getId();
         this.coletado = item.getColetado();
         this.valorTotal = item.getValorTotal();
-        this.produto = itemMapper.toProduto(item.getProduto());
-        this.lista = itemMapper.toLista(item.getLista());
+        this.produto = itemMapper.toProdutoDTO(item.getProduto());
+        this.lista = itemMapper.toListaDTO(item.getLista());
     }
 }
