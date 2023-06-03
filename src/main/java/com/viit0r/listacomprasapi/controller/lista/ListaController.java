@@ -26,7 +26,7 @@ public class ListaController {
     @PostMapping
     public ResponseEntity<ListaResponseDTO> create(@RequestBody ListaRequestDTO listaDTO, UriComponentsBuilder uriBuilder) {
         ListaResponseDTO listaResponseDTO = listaService.create(listaDTO);
-        URI uri = uriBuilder.path("/people/{id}").buildAndExpand(listaResponseDTO.getId()).toUri();
+        URI uri = uriBuilder.path("/lista/{id}").buildAndExpand(listaResponseDTO.getId()).toUri();
         return ResponseEntity.created(uri).body(listaResponseDTO);
     }
 }
