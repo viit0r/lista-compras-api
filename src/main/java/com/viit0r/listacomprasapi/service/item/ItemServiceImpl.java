@@ -35,6 +35,12 @@ public class ItemServiceImpl implements ItemService {
     }
 
     @Override
+    public List<ItemResponseDTO> findByIdLista(Long id) {
+        List<Item> itens = itemRepository.findByIdLista(id);
+        return itemMapper.toItensDTO(itens);
+    }
+
+    @Override
     public ItemResponseDTO create(ItemRequestDTO itemDTO) {
 
         Item item = itemMapper.toItem(itemDTO);

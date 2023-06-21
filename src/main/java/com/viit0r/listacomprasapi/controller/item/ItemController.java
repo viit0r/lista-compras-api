@@ -23,6 +23,11 @@ public class ItemController {
         return ResponseEntity.ok().body(itemService.findAll());
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<List<ItemResponseDTO>> findByIdLista(@PathVariable Long id) {
+        return ResponseEntity.ok().body(itemService.findByIdLista(id));
+    }
+
     @PostMapping
     public ResponseEntity<ItemResponseDTO> create(@RequestBody ItemRequestDTO itemDTO, UriComponentsBuilder uriBuilder) {
         ItemResponseDTO itemResponseDTO = itemService.create(itemDTO);

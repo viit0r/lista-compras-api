@@ -10,5 +10,7 @@ import java.util.List;
 public interface ItemService {
     List<ItemResponseDTO> findAll();
 
+    List<ItemResponseDTO> findByIdLista(Long id);
+
     ItemResponseDTO create(ItemRequestDTO itemDTO);
 }
