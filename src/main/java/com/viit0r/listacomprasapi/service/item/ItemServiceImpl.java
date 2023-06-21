@@ -47,6 +47,9 @@ public class ItemServiceImpl implements ItemService {
                             itemMapper.toProduto(itemDTO.getProduto())
                     ));
         }
+        else {
+            item.setProduto(produtoRepository.findById(itemDTO.getProduto().getId()).get());
+        }
 
         item.setValorTotal(item.getQtde() * item.getProduto().getValorUnitario());
 
