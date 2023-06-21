@@ -8,6 +8,7 @@ import com.viit0r.listacomprasapi.util.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -28,6 +29,7 @@ public class ListaServiceImpl implements ListaService{
     @Override
     public ListaResponseDTO create(ListaRequestDTO listaDTO) {
         Lista lista = listaMapper.toLista(listaDTO);
+        lista.setDataCriacao(new Date());
         return listaMapper.toListaDTO(listaRepository.save(lista));
     }
 }
