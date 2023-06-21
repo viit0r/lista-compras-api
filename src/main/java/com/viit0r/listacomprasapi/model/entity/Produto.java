@@ -3,10 +3,12 @@ package com.viit0r.listacomprasapi.model.entity;
 import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "produto")
 @Getter
+@NoArgsConstructor
 public class Produto {
 
     @Id

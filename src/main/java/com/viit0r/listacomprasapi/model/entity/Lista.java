@@ -1,21 +1,21 @@
 package com.viit0r.listacomprasapi.model.entity;
 
 import jakarta.persistence.*;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.Date;
 
 @Entity
 @Table(name = "lista")
 @Getter
+@Setter
 @NoArgsConstructor
 public class Lista {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_lista")
+    @Setter(AccessLevel.NONE)
     private Long id;
 
     @Column(name = "nome_lista")
@@ -23,11 +23,10 @@ public class Lista {
 
     @Column(name = "dt_criacao", nullable = false)
     private Date dataCriacao;
-
     @Column(name = "limite_gasto")
     private Double limiteGasto;
 
-    @Column(name = "valor_total")
+    @Column(name = "valor_total", nullable = false)
     private Double valorTotal;
 
     @Builder

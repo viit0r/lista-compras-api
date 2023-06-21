@@ -3,6 +3,7 @@ package com.viit0r.listacomprasapi.util;
 import com.viit0r.listacomprasapi.model.entity.Item;
 import com.viit0r.listacomprasapi.model.entity.Lista;
 import com.viit0r.listacomprasapi.model.entity.Produto;
+import com.viit0r.listacomprasapi.model.request.ItemRequestDTO;
 import com.viit0r.listacomprasapi.model.request.ListaRequestDTO;
 import com.viit0r.listacomprasapi.model.request.ProdutoRequestDTO;
 import com.viit0r.listacomprasapi.model.response.ItemResponseDTO;
@@ -35,19 +36,32 @@ public class Mapper {
         return new ListaResponseDTO(lista);
     }
 
+    public ItemResponseDTO toItemDTO(Item item) {
+        return new ItemResponseDTO(item);
+    }
+
     public Lista toLista(ListaRequestDTO listaDTO) {
         return Lista.builder().
                 nome(listaDTO.getNome())
                 .dataCriacao(listaDTO.getDataCriacao())
                 .limiteGasto(listaDTO.getLimiteGasto())
-                .valorTotal(listaDTO.getValorTotal())
+                .valorTotal(listaDTO.getValorTotal() != null ? listaDTO.getValorTotal() : 0.0)
                 .build();
     }
 
     public Produto toProduto(ProdutoRequestDTO produtoDTO) {
         return Produto.builder()
-                .nome(produtoDTO.getNome())
-                .valorUnitario(produtoDTO.getValorUnitario())
+                    .nome(produtoDTO.getNome())
+                    .valorUnitario(produtoDTO.getValorUnitario())
+                    .build();
+    }
+
+    public Item toItem(ItemRequestDTO itemDTO) {
+        return Item.builder()
+                .coletado(itemDTO.getColetado())
+                .qtde(itemDTO.getQtde())
+                .produto(toProduto(itemDTO.getProduto()))
+                .lista(toLista(itemDTO.getLista()))
                 .build();
     }
 }
